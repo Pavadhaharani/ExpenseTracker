@@ -1,0 +1,15 @@
+@if (items.length) {
+  <div class="chart">
+    @for (item of items; track item.label) {
+      <div class="bar-item">
+        <div class="bar-wrap">
+          <span class="value">{{ item.value | currency: 'INR' : 'symbol' : '1.2-2' }}</span>
+          <div class="bar" [style.height]="height(item.value)"></div>
+        </div>
+        <span class="label">{{ item.label }}</span>
+      </div>
+    }
+  </div>
+} @else {
+  <p class="empty">No report data available.</p>
+}

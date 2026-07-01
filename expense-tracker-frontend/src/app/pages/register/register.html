@@ -1,0 +1,48 @@
+<section class="auth-page">
+  <mat-card class="auth-card wide">
+    <div class="auth-brand">
+      <mat-icon>account_balance_wallet</mat-icon>
+      <div>
+        <h1>Create account</h1>
+        <p>Start tracking expenses with a secure account.</p>
+      </div>
+    </div>
+
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <div class="two-col">
+        <mat-form-field appearance="outline">
+          <mat-label>First name</mat-label>
+          <input matInput formControlName="firstName" autocomplete="given-name" />
+          <mat-error>First name is required.</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Last name</mat-label>
+          <input matInput formControlName="lastName" autocomplete="family-name" />
+        </mat-form-field>
+      </div>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Username</mat-label>
+        <input matInput formControlName="username" autocomplete="username" />
+        <mat-error>Use 3 to 50 characters.</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" autocomplete="email" />
+        <mat-error>Enter a valid email.</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Password</mat-label>
+        <input matInput type="password" formControlName="password" autocomplete="new-password" />
+        <mat-error>Password must be at least 8 characters.</mat-error>
+      </mat-form-field>
+
+      <button mat-flat-button color="primary" type="submit">Register</button>
+    </form>
+
+    <p class="switch">Already registered? <a routerLink="/login">Login</a></p>
+  </mat-card>
+</section>

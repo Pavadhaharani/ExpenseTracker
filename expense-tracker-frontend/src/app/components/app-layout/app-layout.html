@@ -1,0 +1,48 @@
+<mat-sidenav-container class="shell">
+  <mat-sidenav class="sidebar" [opened]="sidebarOpen()" mode="side">
+    <div class="brand">
+      <mat-icon>account_balance_wallet</mat-icon>
+      <div>
+        <strong>Expense Tracker</strong>
+        <span>Personal finance</span>
+      </div>
+    </div>
+
+    <mat-nav-list>
+      @for (item of navItems; track item.route) {
+        <a
+          mat-list-item
+          [routerLink]="item.route"
+          routerLinkActive="active-link"
+          [routerLinkActiveOptions]="{ exact: item.route === '/dashboard' }"
+        >
+          <mat-icon matListItemIcon>{{ item.icon }}</mat-icon>
+          <span matListItemTitle>{{ item.label }}</span>
+        </a>
+      }
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <mat-toolbar class="topbar">
+      <button mat-icon-button type="button" aria-label="Toggle navigation" (click)="toggleSidebar()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span class="topbar-title">Expense Tracker</span>
+      <span class="spacer"></span>
+      @if (currentUser$ | async; as user) {
+        <span class="user-chip">{{ user.firstName || user.username }}</span>
+      }
+      <button mat-stroked-button type="button" (click)="logout()">
+        <mat-icon>logout</mat-icon>
+        Logout
+      </button>
+    </mat-toolbar>
+
+    <main class="content">
+      <router-outlet />
+    </main>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+<app-loading-spinner />

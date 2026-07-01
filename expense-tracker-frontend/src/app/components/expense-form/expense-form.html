@@ -1,0 +1,57 @@
+<mat-card class="form-card">
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <div class="form-grid">
+      <mat-form-field appearance="outline">
+        <mat-label>Title</mat-label>
+        <input matInput formControlName="title" maxlength="100" />
+        <mat-error>Title is required.</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Amount</mat-label>
+        <input
+          matInput
+          type="text"
+          inputmode="numeric"
+          pattern="[0-9]*"
+          autocomplete="off"
+          formControlName="amount"
+          (keydown)="blockNonNumericInput($event)"
+          (input)="sanitizeAmountInput($event)"
+        />
+        <mat-error>Amount is required and must be a whole number.</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Category</mat-label>
+        <mat-select formControlName="categoryId">
+          @for (category of categories; track category.id) {
+            <mat-option [value]="category.id">{{ category.name }}</mat-option>
+          }
+        </mat-select>
+        <mat-error>Category is required.</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Expense date</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="expenseDate" />
+        <mat-datepicker-toggle matIconSuffix [for]="picker" />
+        <mat-datepicker #picker />
+        <mat-error>Date is required.</mat-error>
+      </mat-form-field>
+    </div>
+
+    <mat-form-field appearance="outline" class="full">
+      <mat-label>Description</mat-label>
+      <textarea matInput rows="4" formControlName="description" maxlength="1000"></textarea>
+    </mat-form-field>
+
+    <div class="actions">
+      <a mat-button routerLink="/expenses">Cancel</a>
+      <button mat-flat-button color="primary" type="submit">
+        <mat-icon>save</mat-icon>
+        {{ submitLabel }}
+      </button>
+    </div>
+  </form>
+</mat-card>

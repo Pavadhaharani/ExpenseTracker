@@ -1,0 +1,40 @@
+<section class="page-header">
+  <div>
+    <h1>Category Report</h1>
+    <p>Understand where spending is concentrated by category.</p>
+  </div>
+</section>
+
+<mat-card class="report-controls">
+  <form [formGroup]="form" (ngSubmit)="loadReport()">
+    <mat-form-field appearance="outline">
+      <mat-label>Start date</mat-label>
+      <input matInput [matDatepicker]="startPicker" formControlName="startDate" />
+      <mat-datepicker-toggle matIconSuffix [for]="startPicker" />
+      <mat-datepicker #startPicker />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>End date</mat-label>
+      <input matInput [matDatepicker]="endPicker" formControlName="endDate" />
+      <mat-datepicker-toggle matIconSuffix [for]="endPicker" />
+      <mat-datepicker #endPicker />
+    </mat-form-field>
+
+    <button mat-stroked-button type="button" (click)="reset()">Reset</button>
+    <button mat-flat-button color="primary" type="submit">Update</button>
+  </form>
+</mat-card>
+
+@if (report(); as data) {
+  <mat-card class="report-card">
+    <mat-card-header>
+      <mat-card-title>
+        Grand total: {{ data.grandTotal | currency: 'INR' : 'symbol' : '1.2-2' }}
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <app-donut-chart [items]="chartItems(data)" [total]="data.grandTotal" />
+    </mat-card-content>
+  </mat-card>
+}

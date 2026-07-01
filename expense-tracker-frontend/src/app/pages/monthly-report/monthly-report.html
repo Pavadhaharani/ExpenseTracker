@@ -1,0 +1,29 @@
+<section class="page-header">
+  <div>
+    <h1>Monthly Report</h1>
+    <p>Compare spending month by month for a selected year.</p>
+  </div>
+</section>
+
+<mat-card class="report-controls">
+  <form [formGroup]="form" (ngSubmit)="loadReport()">
+    <mat-form-field appearance="outline">
+      <mat-label>Year</mat-label>
+      <input matInput type="number" formControlName="year" />
+    </mat-form-field>
+    <button mat-flat-button color="primary" type="submit">Update</button>
+  </form>
+</mat-card>
+
+@if (report(); as data) {
+  <mat-card class="report-card">
+    <mat-card-header>
+      <mat-card-title>
+        {{ data.year }} total: {{ data.yearTotal | currency: 'INR' : 'symbol' : '1.2-2' }}
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <app-bar-chart [items]="chartItems(data)" />
+    </mat-card-content>
+  </mat-card>
+}

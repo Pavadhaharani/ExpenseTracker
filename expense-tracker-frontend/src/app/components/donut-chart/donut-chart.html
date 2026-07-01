@@ -1,0 +1,23 @@
+@if (items.length) {
+  <div class="donut-layout">
+    <div class="donut" [style.background]="gradient()">
+      <div class="donut-center">
+        <strong>{{ total | currency: 'INR' : 'symbol' : '1.2-2' }}</strong>
+        <span>Total</span>
+      </div>
+    </div>
+
+    <div class="legend">
+      @for (item of items; track item.label; let index = $index) {
+        <div class="legend-item">
+          <span class="swatch" [style.background]="item.color || fallbackColor(index)"></span>
+          <span class="name">{{ item.label }}</span>
+          <span class="amount">{{ item.value | currency: 'INR' : 'symbol' : '1.2-2' }}</span>
+          <span class="percent">{{ item.percentage | number: '1.0-2' }}%</span>
+        </div>
+      }
+    </div>
+  </div>
+} @else {
+  <p class="empty">No category data available.</p>
+}

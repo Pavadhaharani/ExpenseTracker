@@ -1,0 +1,13 @@
+<section class="simple-header">
+  <h1>Edit Expense</h1>
+  <p>Update transaction details and category assignment.</p>
+</section>
+
+@if (expense(); as selectedExpense) {
+  <app-expense-form
+    [expense]="selectedExpense"
+    [categories]="categories()"
+    submitLabel="Update Expense"
+    (formSubmit)="save($event)"
+  />
+}
