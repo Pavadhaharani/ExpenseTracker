@@ -1,56 +1,26 @@
 # 💰 Expense Tracker
 
-A full-stack Expense Tracker application built with **Angular**, **Spring Boot**, and **PostgreSQL** to help users manage their daily expenses efficiently through a clean and intuitive interface.
-
----
-
-## 📌 Overview
-
-Expense Tracker is a personal finance management application that allows users to securely record, categorize, monitor, and analyze their expenses. It provides insightful reports and dashboards to help users understand their spending habits.
+A full-stack Expense Tracker application built using **Angular**, **Spring Boot**, and **PostgreSQL** that helps users manage their personal expenses efficiently.
 
 ---
 
 ## ✨ Features
 
-### 🔐 Authentication
-- User Registration
-- Secure Login
-- JWT Authentication
-- Protected Routes
-
-### 📊 Dashboard
-- Total Expenses Overview
-- Current Month Summary
-- Total Transactions
-- Expense Category Breakdown
-- Recent Transactions
-
-### 💸 Expense Management
-- Add New Expense
-- Edit Existing Expense
-- Delete Expense
-- View Expense History
-- Search Expenses
-- Filter by Category
-- Filter by Date Range
-
-### 📈 Reports
-- Monthly Expense Report
-- Category-wise Expense Report
-- Interactive Charts
-- Expense Analytics
-
-### 🎨 User Interface
-- Responsive Design
-- Angular Material Components
-- Modern Dashboard Layout
-- Easy Navigation
+- 🔐 User Authentication (Login & Registration)
+- 💰 Add, Edit and Delete Expenses
+- 📋 View All Expenses
+- 🔍 Search and Filter Expenses
+- 📊 Dashboard Overview
+- 📈 Monthly Expense Report
+- 🥧 Category-wise Expense Report
+- 📱 Responsive User Interface
 
 ---
 
 ## 🛠️ Tech Stack
 
 ### Frontend
+
 - Angular
 - TypeScript
 - Angular Material
@@ -58,6 +28,7 @@ Expense Tracker is a personal finance management application that allows users t
 - ApexCharts
 
 ### Backend
+
 - Spring Boot
 - Spring Security
 - JWT Authentication
@@ -65,37 +36,14 @@ Expense Tracker is a personal finance management application that allows users t
 - Maven
 
 ### Database
+
 - PostgreSQL
 
 ### Tools
+
 - Git
 - GitHub
 - Postman
-
----
-
-## 📂 Project Structure
-
-```
-ExpenseTracker
-│
-├── expense-tracker-frontend
-│   ├── Angular Application
-│   ├── Dashboard
-│   ├── Expense Management
-│   ├── Reports
-│   └── Authentication
-│
-├── expense-tracker-backend
-│   ├── Spring Boot APIs
-│   ├── Security
-│   ├── Services
-│   ├── Controllers
-│   ├── Repositories
-│   └── Database Configuration
-│
-└── README.md
-```
 
 ---
 
@@ -107,29 +55,14 @@ ExpenseTracker
 git clone https://github.com/Pavadhaharani/ExpenseTracker.git
 ```
 
----
-
-### Backend Setup
+### Backend
 
 ```bash
 cd expense-tracker-backend
-```
-
-Configure PostgreSQL in:
-
-```
-application.properties
-```
-
-Run the application:
-
-```bash
 mvn spring-boot:run
 ```
 
----
-
-### Frontend Setup
+### Frontend
 
 ```bash
 cd expense-tracker-frontend
@@ -137,7 +70,7 @@ npm install
 ng serve
 ```
 
-Open:
+Open your browser:
 
 ```
 http://localhost:4200
@@ -145,39 +78,57 @@ http://localhost:4200
 
 ---
 
-## 📸 Screenshots
+## 📸 Application Screenshots
 
 ### Dashboard
 
-> *(Add Dashboard Screenshot Here)*
+![Dashboard](screenshots/dashboard.png)
 
-### Expense List
+---
 
-> *(Add Expense List Screenshot Here)*
+### Expenses
+
+![Expenses](screenshots/expenses.png)
+
+---
 
 ### Add Expense
 
-> *(Add Add Expense Screenshot Here)*
+![Add Expense](screenshots/add-expense.png)
+
+---
 
 ### Monthly Report
 
-> *(Add Monthly Report Screenshot Here)*
+![Monthly Report](screenshots/monthly-report.png)
+
+---
 
 ### Category Report
 
-> *(Add Category Report Screenshot Here)*
+![Category Report](screenshots/category-report.png)
+
+---
+
+## 📂 Project Structure
+
+```text
+ExpenseTracker
+├── expense-tracker-backend
+├── expense-tracker-frontend
+├── screenshots
+└── README.md
+```
 
 ---
 
 ## 🔮 Future Enhancements
 
-- Dark Mode
-- Budget Planning
-- Expense Notifications
-- Export Reports (PDF / Excel)
-- AI Spending Insights
-- Mobile Application
-- Multi-currency Support
+- 🌙 Dark Mode
+- 💵 Budget Planning
+- 📄 Export Reports (PDF/Excel)
+- 🤖 AI Expense Insights
+- 📱 Mobile Application
 
 ---
 
@@ -185,11 +136,8 @@ http://localhost:4200
 
 **Pavadha Harini**
 
-GitHub:
-https://github.com/Pavadhaharani
+GitHub: https://github.com/Pavadhaharani
 
 ---
 
-## ⭐ Support
-
-If you found this project helpful, consider giving it a ⭐ on GitHub.
+⭐ If you like this project, consider giving it a star!
